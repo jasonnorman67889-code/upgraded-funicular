@@ -1,0 +1,105 @@
+openapi: 3.0.3
+info:
+  title: Identity Fusion Backend
+  version: 0.1.0
+paths:
+  /health:
+    get:
+      summary: Service health
+      responses:
+        '200':
+          description: OK
+  /pipeline/ingest:
+    post:
+      summary: Ingest and process identity events
+      responses:
+        '200':
+          description: Pipeline result
+  /pipeline/mock-run:
+    get:
+      summary: Run pipeline using local mock dataset
+      responses:
+        '200':
+          description: Pipeline result
+  /pipeline/simulate-attack-chain:
+    post:
+      summary: Generate and process a synthetic attack chain
+      responses:
+        '200':
+          description: Synthetic pipeline result
+  /incidents:
+    get:
+      summary: List incidents by tenant
+      responses:
+        '200':
+          description: Incident list
+  /incidents/{incident_id}/status:
+    patch:
+      summary: Update incident status
+      responses:
+        '200':
+          description: Updated incident
+        '404':
+          description: Incident not found
+  /analytics/query:
+    post:
+      summary: Execute KQL-lite query over tenant-scoped rows
+      responses:
+        '200':
+          description: Query results
+  /soar/queues:
+    get:
+      summary: List SOAR queues and open task counts by tenant
+      responses:
+        '200':
+          description: Queue summary
+  /soar/tasks:
+    get:
+      summary: List SOAR tasks by tenant and optional queue
+      responses:
+        '200':
+          description: Task list
+  /soar/tasks/{task_id}/assign:
+    post:
+      summary: Assign a SOAR task to an analyst
+      responses:
+        '200':
+          description: Assigned task
+        '404':
+          description: Task not found
+  /soar/tasks/{task_id}/approve:
+    post:
+      summary: Approve a SOAR task for execution
+      responses:
+        '200':
+          description: Approved task
+        '404':
+          description: Task not found
+  /soar/tasks/{task_id}/reject:
+    post:
+      summary: Reject a SOAR task
+      responses:
+        '200':
+          description: Rejected task
+        '404':
+          description: Task not found
+  /soar/tasks/{task_id}/execute:
+    post:
+      summary: Execute an approved SOAR task
+      responses:
+        '200':
+          description: Executed task
+        '404':
+          description: Task not found
+  /soar/escalations/run:
+    post:
+      summary: Run SLA escalation pass for tenant queues
+      responses:
+        '200':
+          description: Escalation run result
+  /soar/audit:
+    get:
+      summary: List immutable SOAR audit records by tenant
+      responses:
+        '200':
+          description: Audit records

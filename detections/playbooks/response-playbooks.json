@@ -1,0 +1,11 @@
+{
+  "simulate-step-up-auth-and-analyst-review": ["challenge_mfa", "queue_tier2"],
+  "simulate-token-revocation": ["revoke_oauth_tokens", "notify_identity_team"],
+  "simulate-session-kill-and-token-revoke": ["kill_sessions", "revoke_tokens", "open_incident"],
+  "simulate-conditional-access-challenge": ["apply_step_up_policy", "monitor_30m"],
+  "simulate-source-block-and-alert": ["block_source_ip", "notify_soc"],
+  "simulate-session-kill": ["kill_sessions", "force_password_reset"],
+  "simulate-identity-disable-and-review": ["disable_identity", "approval_workflow", "soc_escalation"],
+  "simulate-mailbox-rule-removal": ["remove_mailbox_rules", "notify_user"],
+  "simulate-hybrid-containment": ["disable_identity", "revoke_tokens", "isolate_mailbox", "executive_escalation"]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "eventId": "evt-001",
+    "tenantId": "tenant-a",
+    "entityId": "user-alex",
+    "provider": "EntraID",
+    "eventType": "SuccessfulLogon",
+    "ip": "10.0.0.12",
+    "country": "US",
+    "timeGenerated": "2026-05-20T08:00:00Z"
+  },
+  {
+    "eventId": "evt-002",
+    "tenantId": "tenant-a",
+    "entityId": "user-alex",
+    "provider": "EntraID",
+    "eventType": "ImpossibleTravel",
+    "ip": "81.2.69.142",
+    "country": "DE",
+    "timeGenerated": "2026-05-20T08:20:00Z"
+  },
+  {
+    "eventId": "evt-003",
+    "tenantId": "tenant-b",
+    "entityId": "user-riley",
+    "provider": "Okta",
+    "eventType": "MfaFatigue",
+    "ip": "44.24.23.11",
+    "country": "US",
+    "timeGenerated": "2026-05-20T09:03:00Z"
+  }
+]

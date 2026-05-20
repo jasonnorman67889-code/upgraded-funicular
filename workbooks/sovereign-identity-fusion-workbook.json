@@ -1,0 +1,49 @@
+{
+  "name": "Sovereign-Identity-Fusion-Workbook",
+  "version": "1.0.0",
+  "description": "Identity -> Behavior -> ML Fusion workbook for monitoring identity anomalies, risk scoring, and containment.",
+  "parameters": {
+    "TimeRange": {
+      "type": "timespan",
+      "defaultValue": "P1D"
+    }
+  },
+  "sections": [
+    {
+      "id": "overview",
+      "title": "Identity Overview",
+      "widgets": [
+        {
+          "id": "kpi_new_device",
+          "type": "kpi",
+          "title": "New Device Logons",
+          "query": "IdentityEvents | where EventType == 'NewDeviceLogon' | summarize count()"
+        },
+        {
+          "id": "kpi_impossible_travel",
+          "type": "kpi",
+          "title": "Impossible Travel Events",
+          "query": "IdentityEvents | where EventType == 'ImpossibleTravel' | summarize count()"
+        },
+        {
+          "id": "kpi_mfa_fatigue",
+          "type": "kpi",
+          "title": "MFA Fatigue Patterns",
+          "query": "IdentityEvents | where EventType == 'MfaFatigue' | summarize count()"
+        }
+      ]
+    },
+    {
+      "id": "ml_risk",
+      "title": "ML Identity Risk & Incidents",
+      "widgets": [
+        {
+          "id": "table_recent_incidents",
+          "type": "table",
+          "title": "Recent ML Identity Incidents",
+          "query": "MlIncidents | project TimeGenerated, IncidentId, EntityId, RiskLabel, Action"
+        }
+      ]
+    }
+  ]
+}
