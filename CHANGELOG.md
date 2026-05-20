@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.1] - 2026-05-20
+
+### Changed
+- Replaced `recharts` in the live risk dashboard with a lightweight native SVG chart component to reduce frontend bundle size.
+- Updated Vite chunk settings to remove charting vendor split that is no longer needed.
+- Kept UX parity for risk trend visualization while improving first-load performance.
+
 ## [1.0.0] - 2026-05-20
 
 ### Added

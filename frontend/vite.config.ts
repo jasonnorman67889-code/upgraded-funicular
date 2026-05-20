@@ -7,7 +7,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          charting: ["recharts"],
           icons: ["lucide-react"],
         },
       },
